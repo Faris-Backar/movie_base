@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, state) {
           log(state.toString());
           if (state is MovieCarousalLoaded) {
-            log('herre in movieCarousalLoaded');
+            log('here in movieCarousalLoaded');
             return Scaffold(
               body: Stack(
                 fit: StackFit.expand,
@@ -58,6 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
+            );
+          }
+          if (state is MovieCarousalInitial) {
+            return const Center(
+              child: CircularProgressIndicator(),
             );
           }
           return const SizedBox.shrink();

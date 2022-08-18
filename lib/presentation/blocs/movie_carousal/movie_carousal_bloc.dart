@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:ffi';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -20,10 +19,11 @@ class MovieCarousalBloc extends Bloc<MovieCarousalEvent, MovieCarousalState> {
       CarousalLoadEvent event, Emitter<MovieCarousalState> emit) async {
     final moviesEither = await getTrending(NoParams());
     log('here');
-    return moviesEither.fold((l) => MovieCarousalErrror(), (movies) {
-      log('here in the inner loop');
-      return MovieCarousalLoaded(
-          movies: movies, defaultIndex: event.defaultindex!);
+    emit(MovieCarousalInitial());
+    moviesEither.fold((l) => emit(MovieCarousalErrror()), (movies) {
+      emit(
+        MovieCarousalLoaded(movies: movies, defaultIndex: event.defaultindex!),
+      );
     });
   }
 }
