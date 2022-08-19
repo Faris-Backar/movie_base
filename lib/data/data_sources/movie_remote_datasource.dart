@@ -1,9 +1,6 @@
-import 'dart:convert';
 import 'dart:developer';
 
-import 'package:http/http.dart';
 import 'package:movie_base/data/core/api_client.dart';
-import 'package:movie_base/data/core/api_constants.dart';
 import 'package:movie_base/data/models/movie_model.dart';
 import 'package:movie_base/data/models/movie_response_model.dart';
 

@@ -1,4 +1,4 @@
-// ignore_for_file: annotate_overrides, overridden_fields, must_be_immutable
+// ignore_for_file: annotate_overrides, overridden_fields, must_be_immutable, unnecessary_null_in_if_null_operators, prefer_if_null_operators
 
 import 'package:movie_base/domain/entities/movie_entities.dart';
 

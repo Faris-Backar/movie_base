@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:movie_base/data/data_sources/movie_remote_datasource.dart';
-import 'package:movie_base/data/models/movie_response_model.dart';
 import 'package:movie_base/domain/entities/app_error.dart';
 import 'package:movie_base/domain/entities/movie_entities.dart';
 import 'package:movie_base/domain/repositories/movie_repostiry.dart';
