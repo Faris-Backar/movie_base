@@ -13,5 +13,5 @@ class CarousalLoadEvent extends MovieCarousalEvent {
     this.defaultindex,
   });
   @override
-  List<Object> get props => [defaultindex!];
+  List<Object> get props => [];
 }

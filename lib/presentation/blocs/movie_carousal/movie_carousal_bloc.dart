@@ -22,7 +22,9 @@ class MovieCarousalBloc extends Bloc<MovieCarousalEvent, MovieCarousalState> {
     emit(MovieCarousalInitial());
     moviesEither.fold((l) => emit(MovieCarousalErrror()), (movies) {
       emit(
-        MovieCarousalLoaded(movies: movies, defaultIndex: event.defaultindex!),
+        MovieCarousalLoaded(
+          movies: movies,
+        ),
       );
     });
   }

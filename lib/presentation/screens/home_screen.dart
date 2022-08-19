@@ -46,16 +46,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     heightFactor: 0.6,
                     child: MovieCarousalWidget(
                       movies: state.movies,
-                      defaultIndex: state.defaultIndex!,
+                      defaultIndex: state.defaultIndex ?? 0,
                     ),
                   ),
-                  const FractionallySizedBox(
-                    alignment: Alignment.bottomCenter,
-                    heightFactor: 0.4,
-                    child: Placeholder(
-                      color: Colors.white,
-                    ),
-                  )
+                  // const FractionallySizedBox(
+                  //   alignment: Alignment.bottomCenter,
+                  //   heightFactor: 0.4,
+                  //   child: Placeholder(
+                  //     color: Colors.white,
+                  //   ),
+                  // )
                 ],
               ),
             );

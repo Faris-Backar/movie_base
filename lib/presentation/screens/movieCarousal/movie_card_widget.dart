@@ -18,7 +18,7 @@ class MovieCardWidget extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16.w),
         child: CachedNetworkImage(
-          imageUrl: '${ApiConstants.BASE_URL}$posterPath',
+          imageUrl: '${ApiConstants.BASE_IMAGE_URL}$posterPath',
           fit: BoxFit.cover,
         ),
       ),
