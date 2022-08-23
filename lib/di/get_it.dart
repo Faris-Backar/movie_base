@@ -8,6 +8,7 @@ import 'package:movie_base/domain/usecase/get_latest.dart';
 import 'package:movie_base/domain/usecase/get_now_playing.dart';
 import 'package:movie_base/domain/usecase/get_popular.dart';
 import 'package:movie_base/domain/usecase/get_trending.dart';
+import 'package:movie_base/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_carousal/movie_carousal_bloc.dart';
 
 final getItInstance = GetIt.I;
@@ -32,4 +33,6 @@ Future init() async {
       () => MovieRepositryImpl(remoteDataSource: getItInstance()));
   getItInstance
       .registerFactory(() => MovieCarousalBloc(getTrending: getItInstance()));
+
+  getItInstance.registerFactory(() => MovieBackdropBloc());
 }

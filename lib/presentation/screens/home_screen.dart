@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_base/di/get_it.dart';
+import 'package:movie_base/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_carousal/movie_carousal_bloc.dart';
 import 'package:movie_base/presentation/screens/movieCarousal/movie_carousal_widget.dart';
 
@@ -14,10 +15,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late MovieCarousalBloc movieCarousalBloc;
+  late MovieBackdropBloc movieBackdropBloc;
   @override
   void initState() {
     super.initState();
     movieCarousalBloc = getItInstance<MovieCarousalBloc>();
+    movieBackdropBloc = getItInstance<MovieBackdropBloc>();
     movieCarousalBloc.add(const CarousalLoadEvent());
   }
 
@@ -25,12 +28,20 @@ class _HomeScreenState extends State<HomeScreen> {
   void dispose() {
     super.dispose();
     movieCarousalBloc.close();
+    movieBackdropBloc.close();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<MovieCarousalBloc>(
-      create: (context) => movieCarousalBloc,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<MovieCarousalBloc>(
+          create: (context) => movieCarousalBloc,
+        ),
+        BlocProvider<MovieBackdropBloc>(
+          create: (context) => movieBackdropBloc,
+        ),
+      ],
       child: BlocBuilder<MovieCarousalBloc, MovieCarousalState>(
         bloc: movieCarousalBloc,
         builder: (context, state) {

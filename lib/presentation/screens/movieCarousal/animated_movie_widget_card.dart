@@ -28,7 +28,7 @@ class AnimatedMovieWidgetCard extends StatelessWidget {
             return Align(
               alignment: Alignment.topCenter,
               child: SizedBox(
-                height: Curves.easeIn.transform(value) * 35.h,
+                height: Curves.easeIn.transform(value) * 80.h,
                 width: 30.w,
                 child: child,
               ),
@@ -46,7 +46,15 @@ class AnimatedMovieWidgetCard extends StatelessWidget {
             ),
           );
         }
-        return SizedBox.shrink();
+        return Align(
+          alignment: Alignment.topCenter,
+          child: SizedBox(
+            height: Curves.easeIn.transform(index == 0 ? value : value * 0.5) *
+                150.h,
+            width: 80.w,
+            child: child,
+          ),
+        );
       },
       child: MovieCardWidget(movieId: movieId, posterPath: posterpath),
     );
