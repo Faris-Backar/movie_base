@@ -14,9 +14,10 @@ class MovieCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      borderRadius: BorderRadius.circular(14.sp),
       elevation: 32,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16.w),
+        borderRadius: BorderRadius.circular(14.sp),
         child: CachedNetworkImage(
           imageUrl: '${ApiConstants.BASE_IMAGE_URL}$posterPath',
           fit: BoxFit.cover,

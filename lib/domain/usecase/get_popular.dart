@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_renaming_method_parameters
+
 import 'package:dartz/dartz.dart';
 import 'package:movie_base/domain/entities/app_error.dart';
 import 'package:movie_base/domain/entities/movie_entities.dart';

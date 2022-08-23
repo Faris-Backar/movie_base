@@ -1,4 +1,4 @@
-// ignore_for_file: annotate_overrides, overridden_fields, must_be_immutable, unnecessary_null_in_if_null_operators, prefer_if_null_operators
+// ignore_for_file: annotate_overrides, overridden_fields, must_be_immutable, unnecessary_null_in_if_null_operators, prefer_if_null_operators, prefer_conditional_assignment, unnecessary_new
 
 import 'package:movie_base/domain/entities/movie_entities.dart';
 
@@ -109,11 +109,13 @@ class MovieModel extends MovieEntities {
       };
 }
 
+// ignore: constant_identifier_names
 enum MediaType { MOVIE, TV }
 
 final mediaTypeValues =
     EnumValues({"movie": MediaType.MOVIE, "tv": MediaType.TV});
 
+// ignore: constant_identifier_names
 enum OriginalLanguage { EN, KO, DE, ES }
 
 final originalLanguageValues = EnumValues({

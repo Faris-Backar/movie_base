@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_base/domain/entities/movie_entities.dart';
+import 'package:movie_base/presentation/screens/movieCarousal/animated_movie_widget_card.dart';
 import 'package:movie_base/presentation/screens/movieCarousal/movie_card_widget.dart';
 import 'package:sizer/sizer.dart';
 
@@ -35,15 +36,17 @@ class _MoviePageViewState extends State<MoviePageView> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        vertical: 10.h,
+        vertical: 10.sp,
       ),
-      height: .35.h,
+      height: 45.h,
       child: PageView.builder(
         itemBuilder: (context, index) {
           final MovieEntities movies = widget.movies[index];
-          return MovieCardWidget(
+          return AnimatedMovieWidgetCard(
             movieId: movies.id,
-            posterPath: movies.posterPath,
+            posterpath: movies.posterPath,
+            pageController: pageController,
+            index: index,
           );
         },
         pageSnapping: true,

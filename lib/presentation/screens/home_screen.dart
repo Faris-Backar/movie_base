@@ -49,13 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       defaultIndex: state.defaultIndex ?? 0,
                     ),
                   ),
-                  // const FractionallySizedBox(
-                  //   alignment: Alignment.bottomCenter,
-                  //   heightFactor: 0.4,
-                  //   child: Placeholder(
-                  //     color: Colors.white,
-                  //   ),
-                  // )
+                  const FractionallySizedBox(
+                    alignment: Alignment.bottomCenter,
+                    heightFactor: 0.4,
+                    child: Placeholder(
+                      color: Colors.white,
+                    ),
+                  )
                 ],
               ),
             );

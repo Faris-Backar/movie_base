@@ -11,25 +11,25 @@ class MovieAppBar extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).viewPadding.top,
-        left: 16.h,
-        right: 16.h,
+        left: 16.sp,
+        right: 16.sp,
       ),
       child: Row(children: [
         IconButton(
           icon: SvgPicture.asset(
             'assets/svgs/menu.svg',
-            height: 12.h,
+            height: 12.sp,
           ),
           onPressed: () {},
         ),
         Expanded(
-          child: Logo(height: 14.h),
+          child: Logo(height: 14.sp),
         ),
         IconButton(
           icon: Icon(
             Icons.search,
             color: Colors.white,
-            size: 12.h,
+            size: 12.sp,
           ),
           onPressed: () {},
         ),
