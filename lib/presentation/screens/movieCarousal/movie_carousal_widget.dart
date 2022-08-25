@@ -4,6 +4,7 @@ import 'package:movie_base/presentation/screens/movieCarousal/movie_backdrop_wid
 import 'package:movie_base/presentation/screens/movieCarousal/movie_data_widget.dart';
 import 'package:movie_base/presentation/screens/movieCarousal/movie_page_view.dart';
 import 'package:movie_base/presentation/widgets/movie_app_bar.dart';
+import 'package:movie_base/presentation/widgets/seperator.dart';
 
 class MovieCarousalWidget extends StatelessWidget {
   final List<MovieEntities> movies;
@@ -26,6 +27,7 @@ class MovieCarousalWidget extends StatelessWidget {
               initialPage: defaultIndex,
             ),
             const MovieDataWidget(),
+            const Seperator(),
           ],
         ),
       ],
