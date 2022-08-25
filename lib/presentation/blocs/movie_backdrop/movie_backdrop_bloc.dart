@@ -8,7 +8,7 @@ part 'movie_backdrop_state.dart';
 class MovieBackdropBloc extends Bloc<MovieBackdropEvent, MovieBackdropState> {
   MovieBackdropBloc() : super(MovieBackdropInitial()) {
     on<MovieBackDropChangedEvent>((event, emit) {
-      MovieBackDropChanged(movie: event.movie);
+      emit(MovieBackDropChanged(movie: event.movie));
     });
   }
 }

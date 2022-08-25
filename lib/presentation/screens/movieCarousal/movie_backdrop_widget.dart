@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -26,6 +27,7 @@ class MovieBackDropWidget extends StatelessWidget {
               child: BlocBuilder<MovieBackdropBloc, MovieBackdropState>(
                 builder: (context, state) {
                   if (state is MovieBackDropChanged) {
+                    log(state.movie.toString());
                     return CachedNetworkImage(
                       imageUrl:
                           '${ApiConstants.BASE_IMAGE_URL}${state.movie.backdropPath}',

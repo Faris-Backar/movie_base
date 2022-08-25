@@ -18,18 +18,18 @@ class MovieAppBar extends StatelessWidget {
         IconButton(
           icon: SvgPicture.asset(
             'assets/svgs/menu.svg',
-            height: 12.sp,
+            height: 16.sp,
           ),
           onPressed: () {},
         ),
         Expanded(
-          child: Logo(height: 14.sp),
+          child: Logo(height: 20.sp),
         ),
         IconButton(
           icon: Icon(
             Icons.search,
             color: Colors.white,
-            size: 12.sp,
+            size: 20.sp,
           ),
           onPressed: () {},
         ),

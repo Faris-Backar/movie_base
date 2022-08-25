@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_base/domain/entities/movie_entities.dart';
 import 'package:movie_base/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_base/presentation/screens/movieCarousal/animated_movie_widget_card.dart';
-import 'package:movie_base/presentation/screens/movieCarousal/movie_card_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class MoviePageView extends StatefulWidget {
@@ -40,7 +39,7 @@ class _MoviePageViewState extends State<MoviePageView> {
       margin: EdgeInsets.symmetric(
         vertical: 10.sp,
       ),
-      height: 45.h,
+      height: 40.h,
       child: PageView.builder(
         itemBuilder: (context, index) {
           final MovieEntities movies = widget.movies[index];
