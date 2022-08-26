@@ -5,6 +5,7 @@ import 'package:movie_base/di/get_it.dart';
 import 'package:movie_base/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_carousal/movie_carousal_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
+import 'package:movie_base/presentation/screens/drawer/navigation_drawer.dart';
 import 'package:movie_base/presentation/screens/movieCarousal/movie_carousal_widget.dart';
 import 'package:movie_base/presentation/screens/movie_tabbed/movie_tabbed_widget.dart';
 
@@ -57,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
           if (state is MovieCarousalLoaded) {
             log('here in movieCarousalLoaded');
             return Scaffold(
+              drawer: const NavigationDrawer(),
               body: Stack(
                 fit: StackFit.expand,
                 children: [

@@ -26,7 +26,7 @@ class MovieListViewBuilder extends StatelessWidget {
                 posterPath: movie.posterPath);
           },
           separatorBuilder: (context, index) => SizedBox(
-                width: 14.w,
+                width: 4.w,
               ),
           itemCount: movieList.length),
     );

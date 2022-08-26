@@ -14,6 +14,7 @@ class MovieBaseApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Movie Base',
         theme: ThemeData(
+          accentColor: AppColor.royalBlue,
           primaryColor: AppColor.vulcan,
           scaffoldBackgroundColor: AppColor.vulcan,
           visualDensity: VisualDensity.adaptivePlatformDensity,

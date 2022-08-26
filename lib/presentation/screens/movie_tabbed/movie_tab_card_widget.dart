@@ -21,10 +21,14 @@ class MovieTabCardWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(16.sp),
-          child: CachedNetworkImage(
-            imageUrl: '${ApiConstants.BASE_IMAGE_URL}$posterPath',
-            fit: BoxFit.cover,
+          borderRadius: BorderRadius.circular(13.34.sp),
+          child: SizedBox(
+            width: 60.w,
+            height: 30.h,
+            child: CachedNetworkImage(
+              imageUrl: '${ApiConstants.BASE_IMAGE_URL}$posterPath',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Padding(
