@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:movie_base/common/constant/language_constants.dart';
+import 'package:movie_base/common/constant/translation_constants.dart';
 import 'package:movie_base/presentation/screens/drawer/navigation_expanded_list_tile.dart';
 import 'package:movie_base/presentation/screens/drawer/navigation_list_item.dart';
+import 'package:movie_base/presentation/widgets/app_localizations.dart';
 import 'package:movie_base/presentation/widgets/logo.dart';
 import 'package:sizer/sizer.dart';
 
@@ -10,17 +13,17 @@ class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 70.w,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).primaryColor.withOpacity(0.7),
-              blurRadius: 4,
-            )
-          ],
-        ),
-        child: SafeArea(
-            child: Column(
+      width: 70.w,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).primaryColor.withOpacity(0.7),
+            blurRadius: 4,
+          )
+        ],
+      ),
+      child: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
@@ -35,25 +38,32 @@ class NavigationDrawer extends StatelessWidget {
               ),
             ),
             NavigationListItem(
-              title: 'Favourite Movies',
+              title: AppLocalization.of(context)
+                      .translate(TranslationConstants.favoriteMovie) ??
+                  'Favourite Movies',
               onPressed: () {},
             ),
             NavigationExpansionTileWidget(
-                title: 'Language',
+                title: AppLocalization.of(context)
+                        .translate(TranslationConstants.language) ??
+                    'Language',
                 onPressed: () {},
-                children: const [
-                  'English',
-                  'Spanish',
-                ]),
+                children: Languages.languages.map((e) => e.value).toList()),
             NavigationListItem(
-              title: 'Feedback',
+              title: AppLocalization.of(context)
+                      .translate(TranslationConstants.feedback) ??
+                  'Feedback',
               onPressed: () {},
             ),
             NavigationListItem(
-              title: 'About',
+              title: AppLocalization.of(context)
+                      .translate(TranslationConstants.about) ??
+                  "About",
               onPressed: () {},
             ),
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
