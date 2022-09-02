@@ -8,11 +8,18 @@ class ThemeText {
   static TextTheme get _poppinsTextTheme => GoogleFonts.poppinsTextTheme();
   static TextStyle get _whiteHeadLine6 => _poppinsTextTheme.headline6!
       .copyWith(fontSize: 16.67.sp, color: Colors.white);
+
+  static TextStyle get _whiteButton => _poppinsTextTheme.button!.copyWith(
+        fontSize: 14.sp,
+        color: Colors.white,
+      );
   static getTextTheme() => TextTheme(
         headline6: _whiteHeadLine6,
         subtitle1: whiteSubtitle1,
         bodyText2: whitebodyText2,
+        button: _whiteButton,
       );
+
   static TextStyle get whiteSubtitle1 => _poppinsTextTheme.subtitle1!
       .copyWith(fontSize: 16.sp, color: Colors.white);
   static TextStyle get whitebodyText2 => _poppinsTextTheme.bodyText2!.copyWith(
@@ -30,8 +37,13 @@ extension ThemeTextExtension on TextTheme {
       );
   TextStyle get greySubtitle1 => subtitle1!.copyWith(
         color: Colors.grey,
+        fontSize: 10.sp,
       );
   TextStyle get violetHeadLine1 => subtitle1!.copyWith(
-        color: AppColor.royalBlue,
+        color: AppColor.violet,
+      );
+  TextStyle get vulcanBodyText2 => subtitle1!.copyWith(
+        color: AppColor.vulcan,
+        fontWeight: FontWeight.w600,
       );
 }

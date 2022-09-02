@@ -2,17 +2,17 @@
 
 import 'package:dartz/dartz.dart';
 import 'package:movie_base/domain/entities/app_error.dart';
-import 'package:movie_base/domain/entities/movie_detail_entity.dart';
 import 'package:movie_base/domain/entities/movie_params.dart';
+import 'package:movie_base/domain/entities/video_entity.dart';
 import 'package:movie_base/domain/repositories/movie_repostiry.dart';
 import 'package:movie_base/domain/usecase/usecase.dart';
 
-class GetMovieDetails extends UseCase<MovieDetailEntity, MovieParams> {
+class GetVideos extends UseCase<List<VideoEntity>, MovieParams> {
   final MovieRepositry repositry;
-  GetMovieDetails({required this.repositry});
+  GetVideos({required this.repositry});
   @override
-  Future<Either<AppError, MovieDetailEntity>> call(
+  Future<Either<AppError, List<VideoEntity>>> call(
       MovieParams movieParams) async {
-    return await repositry.getMovieDetail(movieParams.id);
+    return await repositry.getVideos(movieParams.id);
   }
 }
