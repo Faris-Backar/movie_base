@@ -6,6 +6,7 @@ import 'package:movie_base/presentation/blocs/movie_backdrop/movie_backdrop_bloc
 import 'package:movie_base/presentation/blocs/movie_carousal/movie_carousal_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
 import 'package:movie_base/presentation/screens/drawer/navigation_drawer.dart';
+import 'package:movie_base/presentation/screens/movieCarousal/movie_carousal_load_error_widget.dart';
 import 'package:movie_base/presentation/screens/movieCarousal/movie_carousal_widget.dart';
 import 'package:movie_base/presentation/screens/movie_tabbed/movie_tabbed_widget.dart';
 
@@ -82,6 +83,12 @@ class _HomeScreenState extends State<HomeScreen> {
           if (state is MovieCarousalInitial) {
             return const Center(
               child: CircularProgressIndicator(),
+            );
+          }
+          if (state is MovieCarousalErrror) {
+            return MovieCarousalLoadErrorWidget(
+              appErrorType: state.appErrorType,
+              bloc: movieCarousalBloc,
             );
           }
           return const SizedBox.shrink();

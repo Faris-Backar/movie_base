@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:movie_base/domain/entities/app_error.dart';
 import 'package:movie_base/domain/entities/movie_entities.dart';
 import 'package:movie_base/domain/entities/no_params.dart';
 import 'package:movie_base/domain/usecase/get_trending.dart';
@@ -20,7 +21,9 @@ class MovieCarousalBloc extends Bloc<MovieCarousalEvent, MovieCarousalState> {
     final moviesEither = await getTrending(NoParams());
     log('here');
     emit(MovieCarousalInitial());
-    moviesEither.fold((l) => emit(MovieCarousalErrror()), (movies) {
+    moviesEither
+        .fold((l) => emit(MovieCarousalErrror(appErrorType: l.appErrorType)),
+            (movies) {
       emit(
         MovieCarousalLoaded(
           movies: movies,
