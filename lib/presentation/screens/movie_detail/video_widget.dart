@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_base/presentation/screens/watch_movie/watch_video_argument.dart';
+import 'package:movie_base/presentation/screens/watch_movie/watch_video_screen.dart';
 import 'package:movie_base/presentation/widgets/button.dart';
 import 'package:movie_base/presentation/blocs/video/video_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -22,7 +24,15 @@ class VideoWidget extends StatelessWidget {
             padding: EdgeInsets.all(4.0.w),
             child: Button(
               title: 'Watch Trailers',
-              ontap: () {},
+              ontap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => WatchVideoScreen(
+                      watchVideoArguments: WatchVideoArguments(videos: videos),
+                    ),
+                  ),
+                );
+              },
             ),
           );
         }
