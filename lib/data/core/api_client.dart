@@ -6,7 +6,10 @@ class ApiClient {
   final Client _client;
   ApiClient(this._client);
 
-  dynamic get({required String path}) async {
+  dynamic get({
+    required String path,
+    Map<dynamic, dynamic>? params,
+  }) async {
     final linkUrl =
         '${ApiConstants.BASE_URL}$path?api_key=${ApiConstants.API_KEY}';
     Uri url = Uri.parse(linkUrl);
@@ -18,5 +21,15 @@ class ApiClient {
     } else {
       throw Exception(response.reasonPhrase);
     }
+  }
+
+  String getpath({String? path, Map<dynamic, dynamic>? params}) {
+    var paramString = '';
+    if (params!.isNotEmpty) {
+      params.forEach((key, value) {
+        paramString += '&$key=$value';
+      });
+    }
+    return '${ApiConstants.BASE_URL}$path?api_key=${ApiConstants.API_KEY}$paramString';
   }
 }

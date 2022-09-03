@@ -7,6 +7,7 @@ import 'package:movie_base/data/models/movie_response_model.dart';
 import 'package:movie_base/data/models/video_model.dart';
 import 'package:movie_base/data/models/video_result_model.dart';
 import 'package:movie_base/domain/entities/cast_entity.dart';
+import 'package:movie_base/domain/entities/movie_entities.dart';
 
 abstract class MovieRemoteDataSource {
   Future<List<MovieModel>> getTrending();
@@ -16,6 +17,7 @@ abstract class MovieRemoteDataSource {
   Future<MovieDetailsModel> getMovieDetails(int id);
   Future<List<CastEntity>> getCastAndCrew(int id);
   Future<List<VideoResultModel>> getVideo(int id);
+  Future<List<MovieEntities>> getSearchMovies(String searchTerm);
 }
 
 class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
@@ -75,5 +77,16 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
     final movies = VideoModel.fromJson(response).results;
     log('Now Playing Movie Response=> $movies');
     return movies!;
+  }
+
+  @override
+  Future<List<MovieEntities>> getSearchMovies(String searchTerm) async {
+    final response = await _client.get(
+      path: 'search/movie',
+      params: {'query': searchTerm},
+    );
+    final movies = MovieResponseModel.fromJson(response).movieModels;
+    log('Now Playing Movie Response=> $movies');
+    return movies;
   }
 }

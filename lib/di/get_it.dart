@@ -11,11 +11,13 @@ import 'package:movie_base/domain/usecase/get_now_playing.dart';
 import 'package:movie_base/domain/usecase/get_popular.dart';
 import 'package:movie_base/domain/usecase/get_trending.dart';
 import 'package:movie_base/domain/usecase/get_videos.dart';
+import 'package:movie_base/domain/usecase/search_movies.dart';
 import 'package:movie_base/presentation/blocs/cast_and_crew/cast_and_crew_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_carousal/movie_carousal_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_detail/movie_detail_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
+import 'package:movie_base/presentation/blocs/search_movies/search_movies_bloc.dart';
 import 'package:movie_base/presentation/blocs/video/video_bloc.dart';
 
 final getItInstance = GetIt.I;
@@ -42,9 +44,12 @@ Future init() async {
       () => GetMovieDetails(repositry: getItInstance()));
   getItInstance.registerLazySingleton<GetVideos>(
       () => GetVideos(repositry: getItInstance()));
+  getItInstance.registerLazySingleton<GetSearchmovies>(
+      () => GetSearchmovies(repositry: getItInstance()));
   getItInstance
       .registerFactory(() => MovieCarousalBloc(getTrending: getItInstance()));
   getItInstance.registerFactory(() => VideoBloc(getItInstance()));
+  getItInstance.registerFactory(() => SearchMoviesBloc(getItInstance()));
   getItInstance.registerFactory(() => GetCast(repositry: getItInstance()));
   getItInstance.registerFactory(
     () => MovieDetailBloc(

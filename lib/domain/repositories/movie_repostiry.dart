@@ -13,4 +13,6 @@ abstract class MovieRepositry {
   Future<Either<AppError, MovieDetailEntity>> getMovieDetail(int id);
   Future<Either<AppError, List<CastEntity>>> getCastCrew(int id);
   Future<Either<AppError, List<VideoEntity>>> getVideos(int id);
+  Future<Either<AppError, List<MovieEntities>>> getSearchedMovies(
+      String searchTerm);
 }

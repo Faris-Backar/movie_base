@@ -5,6 +5,7 @@ import 'package:movie_base/di/get_it.dart';
 import 'package:movie_base/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_carousal/movie_carousal_bloc.dart';
 import 'package:movie_base/presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
+import 'package:movie_base/presentation/blocs/search_movies/search_movies_bloc.dart';
 import 'package:movie_base/presentation/screens/drawer/navigation_drawer.dart';
 import 'package:movie_base/presentation/screens/movieCarousal/movie_carousal_load_error_widget.dart';
 import 'package:movie_base/presentation/screens/movieCarousal/movie_carousal_widget.dart';
@@ -21,12 +22,14 @@ class _HomeScreenState extends State<HomeScreen> {
   late MovieCarousalBloc movieCarousalBloc;
   late MovieBackdropBloc movieBackdropBloc;
   late MovieTabbedBloc movieTabbedBloc;
+  late SearchMoviesBloc searchMoviesBloc;
   @override
   void initState() {
     super.initState();
     movieCarousalBloc = getItInstance<MovieCarousalBloc>();
     movieBackdropBloc = getItInstance<MovieBackdropBloc>();
     movieTabbedBloc = getItInstance<MovieTabbedBloc>();
+    searchMoviesBloc = getItInstance<SearchMoviesBloc>();
     movieCarousalBloc.add(const CarousalLoadEvent());
   }
 
@@ -36,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     movieCarousalBloc.close();
     movieBackdropBloc.close();
     movieTabbedBloc.close();
+    searchMoviesBloc.close();
   }
 
   @override
@@ -50,6 +54,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         BlocProvider<MovieTabbedBloc>(
           create: (context) => movieTabbedBloc,
+        ),
+        BlocProvider<SearchMoviesBloc>(
+          create: (context) => searchMoviesBloc,
         ),
       ],
       child: BlocBuilder<MovieCarousalBloc, MovieCarousalState>(

@@ -21,9 +21,9 @@ class MovieListViewBuilder extends StatelessWidget {
           itemBuilder: (context, index) {
             final MovieEntities movie = movieList[index];
             return MovieTabCardWidget(
-                movieId: movie.id,
+                movieId: movie.id!,
                 title: movie.title!,
-                posterPath: movie.posterPath);
+                posterPath: movie.posterPath!);
           },
           separatorBuilder: (context, index) => SizedBox(
                 width: 4.w,

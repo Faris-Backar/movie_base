@@ -124,4 +124,21 @@ class MovieRepositryImpl extends MovieRepositry {
       );
     }
   }
+
+  @override
+  Future<Either<AppError, List<MovieEntities>>> getSearchedMovies(
+      String searchTerm) async {
+    try {
+      final movies = await remoteDataSource.getSearchMovies(searchTerm);
+      return Right(movies);
+    } on SocketException {
+      return const Left(
+        AppError(appErrorType: AppErrorType.network),
+      );
+    } on Exception {
+      return const Left(
+        AppError(appErrorType: AppErrorType.api),
+      );
+    }
+  }
 }

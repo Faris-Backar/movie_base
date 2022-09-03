@@ -21,6 +21,8 @@ class _MoviePageViewState extends State<MoviePageView> {
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<MovieBackdropBloc>(context)
+        .add(MovieBackDropChangedEvent(movie: widget.movies[0]));
     pageController = PageController(
         initialPage: widget.initialPage,
         keepPage: false,
@@ -44,8 +46,8 @@ class _MoviePageViewState extends State<MoviePageView> {
         itemBuilder: (context, index) {
           final MovieEntities movies = widget.movies[index];
           return AnimatedMovieWidgetCard(
-            movieId: movies.id,
-            posterpath: movies.posterPath,
+            movieId: movies.id!,
+            posterpath: movies.posterPath!,
             pageController: pageController,
             index: index,
           );
